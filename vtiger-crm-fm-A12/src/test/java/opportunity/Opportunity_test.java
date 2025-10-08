@@ -1,7 +1,6 @@
 package opportunity;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Set;
@@ -31,11 +30,12 @@ public class Opportunity_test {
 		Cell cell = row.getCell(0);
 		String oppNameValue = cell.getStringCellValue();
 		wb.close();
-		
+
 		// save the changes
-		//FileOutputStream fos = new FileOutputStream("./src/test/resources/testScriptData.xlsx");
-		//wb.write(fos);
-		
+		// FileOutputStream fos = new
+		// FileOutputStream("./src/test/resources/testScriptData.xlsx");
+		// wb.write(fos);
+
 		// open chrome
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();

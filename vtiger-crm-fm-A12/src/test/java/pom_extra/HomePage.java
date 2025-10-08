@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
-	
 
 	public HomePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -17,6 +16,6 @@ public class HomePage {
 
 	// getter
 	public WebElement getLogo() {
-	return logo;
+		return logo;
 	}
 }
