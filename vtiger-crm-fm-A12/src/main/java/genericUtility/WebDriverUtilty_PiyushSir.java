@@ -1,4 +1,4 @@
-package GenericUtility;
+package genericUtility;
 
 	import java.io.File;
 	import java.io.IOException;

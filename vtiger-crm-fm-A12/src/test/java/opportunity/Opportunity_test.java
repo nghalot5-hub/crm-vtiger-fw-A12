@@ -1,16 +1,10 @@
 package opportunity;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Set;
 
 import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,52 +12,49 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import genericUtility.FileUtility;
+import object_Repository.CreateOpportunities;
+import object_Repository.HomePage;
+import object_Repository.LoginPage;
+
 public class Opportunity_test {
 
 	public static void main(String[] args) throws InterruptedException, EncryptedDocumentException, IOException {
-
+		FileUtility fu=new FileUtility();
+		
+		//get data from properties file
+		String URL =fu.getDataFromPropertiesFile("url");
+		String USERNAME=fu.getDataFromPropertiesFile("username");
+		String PASSWORD=fu.getDataFromPropertiesFile("password");
+	
 		// get details from excel file
-		FileInputStream fis = new FileInputStream("./src/test/resources/testScriptData.xlsx");
-		Workbook wb = WorkbookFactory.create(fis);
-		Sheet sh = wb.getSheet("opportunities");
-		Row row = sh.getRow(1);
-		Cell cell = row.getCell(0);
-		String oppNameValue = cell.getStringCellValue();
-		wb.close();
+		String oppNameValue =fu.getStringDataFromExcelFile("opportunities",1, 0);
 
-		// save the changes
-		// FileOutputStream fos = new
-		// FileOutputStream("./src/test/resources/testScriptData.xlsx");
-		// wb.write(fos);
-
-		// open chrome
+		// open Chrome Browser
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-		// open website
-		driver.get("http://localhost:8888/");
+		// open web-site
+		driver.get(URL);
 
-		// enter user name
-		WebElement username = driver.findElement(By.name("user_name"));
-		username.sendKeys("admin");
-
-		// enter password opportunities name
-		WebElement password = driver.findElement(By.name("user_password"));
-		password.sendKeys("manager");
-
-		// click on submit button
-		driver.findElement(By.id("submitButton")).click();
+		// logingetClickCreateOpportunitiesBtn
+		LoginPage loginPage=new LoginPage(driver);
+		loginPage.login();;
 
 		// click on Opportunities
-		WebElement opportunities = driver.findElement(By.linkText("Opportunities"));
-
+		HomePage homePage=new HomePage(driver);
+		WebElement opportunities=homePage.getOpportunities();
+		opportunities.click();
+		
 		Actions act = new Actions(driver);
 		act.moveToElement(opportunities).click().build().perform();
 
 		// click on create opportunities button
-		driver.findElement(By.cssSelector("img[title='Create Opportunity...']")).click();
-
+		CreateOpportunities createOpportunities=new CreateOpportunities(driver);
+		createOpportunities.getClickCreateOpportunitiesBtn().click();
+		
+		//pending create pom to be continued
 		// Fill the for: enter opportunities name:
 		WebElement oppName = driver.findElement(By.name("potentialname"));
 		// String oppNameValue = "Testing";

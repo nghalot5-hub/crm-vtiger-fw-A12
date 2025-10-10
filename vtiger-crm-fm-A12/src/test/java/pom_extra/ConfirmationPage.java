@@ -10,15 +10,13 @@ public class ConfirmationPage {
 	public ConfirmationPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-	
-	@FindBy(className ="complete-header")
+
+	@FindBy(className = "complete-header")
 	private WebElement confirmation;
 
 	// getters
 	public WebElement getConfirmation() {
 		return confirmation;
 	}
-	
-	
+
 }
-		

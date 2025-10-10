@@ -1,4 +1,4 @@
-package GenericUtility;
+package genericUtility;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,7 +13,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class FileUtility {
 	// Prevent instantiation
-	private FileUtility() {
+	public FileUtility() {
 		throw new UnsupportedOperationException("Cannot instantiate utility class");
 	}
 

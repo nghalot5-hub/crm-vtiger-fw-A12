@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+    <line>
+      <![CDATA[Write in Report]]>
+    </line>
+    <line>
+      <![CDATA[Write in Report and console]]>
+    </line>
+  </reporter-output>
+  <suite started-at="2025-10-09T15:20:32 IST" name="Default suite" finished-at="2025-10-09T15:20:32 IST" duration-ms="51">
+    <groups>
+    </groups>
+    <test started-at="2025-10-09T15:20:32 IST" name="Default test" finished-at="2025-10-09T15:20:32 IST" duration-ms="51">
+      <class name="testNG_extra.Demo">
+        <test-method signature="Case1()[pri:0, instance:testNG_extra.Demo@235834f2]" started-at="2025-10-09T15:20:32 IST" name="Case1" finished-at="2025-10-09T15:20:32 IST" duration-ms="8" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Case1 -->
+        <test-method signature="Case2()[pri:0, instance:testNG_extra.Demo@235834f2]" started-at="2025-10-09T15:20:32 IST" name="Case2" finished-at="2025-10-09T15:20:32 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Write in Report]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- Case2 -->
+        <test-method signature="Case3()[pri:0, instance:testNG_extra.Demo@235834f2]" started-at="2025-10-09T15:20:32 IST" name="Case3" finished-at="2025-10-09T15:20:32 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Write in Report and console]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- Case3 -->
+      </class> <!-- testNG_extra.Demo -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

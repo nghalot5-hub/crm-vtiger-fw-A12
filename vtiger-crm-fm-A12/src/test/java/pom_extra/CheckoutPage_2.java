@@ -10,7 +10,7 @@ public class CheckoutPage_2 {
 	public CheckoutPage_2(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	@FindBy(linkText = "FINISH")
 	private WebElement finishBtn;
 
@@ -19,4 +19,3 @@ public class CheckoutPage_2 {
 		return finishBtn;
 	}
 }
-		
