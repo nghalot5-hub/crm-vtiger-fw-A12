@@ -20,4 +20,18 @@ public class HomePage {
 	public WebElement getOpportunities() {
 		return opportunities;
 	}
+	
+	@FindBy(css = "img[src='themes/softed/images/user.PNG']")
+	private WebElement profilePic;
+
+	public WebElement getProfilePic() {
+		return profilePic;
+	}
+
+	@FindBy(linkText = "Sign Out")
+	private WebElement signOutLink;
+
+	public WebElement getSignOutLink() {
+		return signOutLink;
+	}
 }
